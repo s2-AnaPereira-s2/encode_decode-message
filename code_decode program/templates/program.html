@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PROGRAM</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styleprogram.css') }}">
+</head>
+<header>
+    <h1>Code and Decode program</h1>
+</header>
+<body>
+    <form action="http://127.0.0.1:5000" method="post">
+        <fielset>
+            <label for="choice">Action:
+                <select id="choice" name="choice"><br>
+                    <option value=""></option><br>
+                    <option value="encode">encode</option><br>
+                    <option value="decode">decode</option><br>
+               </select>
+            </label>
+        </fielset>
+        <fielset>
+            <label for="shift_number">Shift number
+            <input type="number" id="shift_number" name="shift_number">
+            </label>
+        </fielset>
+        <fielset>
+            <br><label for="message_in">Message <br>
+                <br><textarea id="message_in" name="message_in" rows="3" cols="30" placeholder="Write your message here"></textarea>
+            </label>
+        </fielset>
+        <fielset>
+            <input type="submit" value="Submit"><br>
+        </fielset>
+    </form>
+    {%if message_out %}
+        <h2> Your code message: {{message_out}} </h2>
+    {%elif message_original%}
+        <h2> The secret message is: {{message_original}} </h2>
+    {%else %}
+        <h2></h2>
+    {%endif%}
+
+</body>
+</html>
